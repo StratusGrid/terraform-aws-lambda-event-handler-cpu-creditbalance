@@ -4,8 +4,8 @@ This module will deploy a lambda function which will listen for ebs volume creat
 ### Example Usage:
 ```
 module "cpu-burst-balance-lambda" {
-  source = "StratusGrid/terraform-aws-lambda-event-handler-cpu-creditbalance/aws"
-  version = "1.0.1"
+  source = "StratusGrid/lambda-event-handler-cpu-creditbalance/aws"
+  version = "1.0.2"
   name_prefix = "${var.name_prefix}"
   unique_name = "event-handler-cpu-burst-balance"
   sns_alarm_target = "${var.sns_alarm_target}"
