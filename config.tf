@@ -64,7 +64,7 @@ resource "aws_lambda_function" "function" {
     }
   }
   lifecycle {
-    ignore_changes = ["filename","last_modified"]
+    ignore_changes = ["last_modified"]
   }
   tags = "${var.input_tags}"
 }
