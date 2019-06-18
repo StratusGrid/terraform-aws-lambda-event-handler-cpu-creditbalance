@@ -1,0 +1,132 @@
+{
+  "Reservations": [
+    {
+      "Groups": [],
+      "Instances": [
+        {
+          "AmiLaunchIndex": 0,
+          "ImageId": "ami-07b4156579ea1d7ba",
+          "InstanceId": "i-0ad76cca6e4e898bf",
+          "InstanceType": "t2.micro",
+          "KeyName": "awsvpn",
+          "LaunchTime": "datetime.datetime(2019, 6, 18, 17, 16, 50, tzinfo=tzutc())",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "Placement": {
+            "AvailabilityZone": "us-east-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "PrivateDnsName": "ip-172-31-86-177.ec2.internal",
+          "PrivateIpAddress": "172.31.86.177",
+          "ProductCodes": [],
+          "PublicDnsName": "ec2-18-212-199-124.compute-1.amazonaws.com",
+          "PublicIpAddress": "18.212.199.124",
+          "State": {
+            "Code": 16,
+            "Name": "running"
+          },
+          "StateTransitionReason": "",
+          "SubnetId": "subnet-068af52a",
+          "VpcId": "vpc-5e763e27",
+          "Architecture": "x86_64",
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "AttachTime": "datetime.datetime(2019, 6, 18, 17, 16, 51, tzinfo=tzutc())",
+                "DeleteOnTermination": "True",
+                "Status": "attached",
+                "VolumeId": "vol-077f765dc98e459f4"
+              }
+            }
+          ],
+          "ClientToken": "",
+          "EbsOptimized": "False",
+          "EnaSupport": "True",
+          "Hypervisor": "xen",
+          "NetworkInterfaces": [
+            {
+              "Association": {
+                "IpOwnerId": "amazon",
+                "PublicDnsName": "ec2-18-212-199-124.compute-1.amazonaws.com",
+                "PublicIp": "18.212.199.124"
+              },
+              "Attachment": {
+                "AttachTime": "datetime.datetime(2019, 6, 18, 17, 16, 50, tzinfo=tzutc())",
+                "AttachmentId": "eni-attach-01decfd4adb74306f",
+                "DeleteOnTermination": "True",
+                "DeviceIndex": 0,
+                "Status": "attached"
+              },
+              "Description": "",
+              "Groups": [
+                {
+                  "GroupName": "launch-wizard-11",
+                  "GroupId": "sg-05846b93f6de29d5d"
+                }
+              ],
+              "Ipv6Addresses": [],
+              "MacAddress": "12:09:d6:8c:78:90",
+              "NetworkInterfaceId": "eni-0254bed8d6954da4a",
+              "OwnerId": "123456789012",
+              "PrivateDnsName": "ip-172-31-86-177.ec2.internal",
+              "PrivateIpAddress": "172.31.86.177",
+              "PrivateIpAddresses": [
+                {
+                  "Association": {
+                    "IpOwnerId": "amazon",
+                    "PublicDnsName": "ec2-18-212-199-124.compute-1.amazonaws.com",
+                    "PublicIp": "18.212.199.124"
+                  },
+                  "Primary": "True",
+                  "PrivateDnsName": "ip-172-31-86-177.ec2.internal",
+                  "PrivateIpAddress": "172.31.86.177"
+                }
+              ],
+              "SourceDestCheck": "True",
+              "Status": "in-use",
+              "SubnetId": "subnet-068af52a",
+              "VpcId": "vpc-5e763e27"
+            }
+          ],
+          "RootDeviceName": "/dev/sda1",
+          "RootDeviceType": "ebs",
+          "SecurityGroups": [
+            {
+              "GroupName": "launch-wizard-11",
+              "GroupId": "sg-05846b93f6de29d5d"
+            }
+          ],
+          "SourceDestCheck": "True",
+          "VirtualizationType": "hvm",
+          "CpuOptions": {
+            "CoreCount": 1,
+            "ThreadsPerCore": 1
+          },
+          "CapacityReservationSpecification": {
+            "CapacityReservationPreference": "open"
+          },
+          "HibernationOptions": {
+            "Configured": "False"
+          }
+        }
+      ],
+      "OwnerId": "123456789012",
+      "ReservationId": "r-078365b5f1347e5f6"
+    }
+  ],
+  "ResponseMetadata": {
+    "RequestId": "c4bf1778-fce5-4a15-8494-eacb41bbb693",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "content-type": "text/xml;charset=UTF-8",
+      "content-length": "6479",
+      "vary": "accept-encoding",
+      "date": "Tue, 18 Jun 2019 17:22:16 GMT",
+      "server": "AmazonEC2"
+    },
+    "RetryAttempts": 0
+  }
+}

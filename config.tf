@@ -58,7 +58,8 @@ resource "aws_lambda_function" "function" {
   environment {
     variables = {
       sns_alarm_target = "${var.sns_alarm_target}"
-      alarm_threshold  = "${var.alarm_threshold}"
+      alarm_threshold_standard  = "${var.alarm_threshold_standard}"
+      alarm_threshold_unlimited = "${var.alarm_threshold_unlimited}"
       alarm_period     = "${var.alarm_period}"
     }
   }
@@ -144,7 +145,7 @@ resource "aws_iam_role_policy" "function_policy" {
       "Sid": "AllowEc2Actions",
       "Effect": "Allow",
       "Action": [
-          "ec2:DescribeVolume*"
+          "ec2:DescribeInstance*"
       ],
       "Resource": "*"
     }

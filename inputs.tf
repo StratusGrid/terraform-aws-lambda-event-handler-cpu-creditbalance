@@ -30,10 +30,16 @@ variable "sns_alarm_target" {
   default = ""
 }
 
-variable "alarm_threshold" {
-  description = "Float value for alarm threshold (e.g. 75.0)"
+variable "alarm_threshold_standard" {
+  description = "Float value for alarm threshold to be used as lower limit for CPU Credit Balance on Standard Burst instances(e.g. 25.0)"
   type = "string"
   default = "25.0"
+}
+
+variable "alarm_threshold_unlimited" {
+  description = "Float value for alarm threshold to be used as upper limit for CPU Surplus Credit Balance on Unlimited Burst instances (e.g. 1.0)"
+  type = "string"
+  default = "1.0"
 }
 
 variable "alarm_period" {
