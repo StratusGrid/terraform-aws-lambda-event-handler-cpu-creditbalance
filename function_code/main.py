@@ -33,7 +33,7 @@ def handler(event, context):
         # Attempt to create CloudWatch Alarm
         if match_instance_type:
           print('Creating alarm for instance: ', instance_id)
-          response = cw.put_metric_alarm(
+          response = cloudwatch.put_metric_alarm(
             AlarmName="{0}-CpuCreditBalance".format(instance_id),
             AlarmDescription='Alarm when CPU Credit Balance below threshold',
             ActionsEnabled=True,
@@ -56,7 +56,7 @@ def handler(event, context):
             )
           # Verify successful
           if response['ResponseMetadata']['HTTPStatusCode'] == 200:
-            print('Successfully created CpuCreditBalance Alarm for instance: ', match.group(1))
+            print('Successfully created CpuCreditBalance Alarm for instance: ', instance_id)
           # Else print response as error
           else:
             print(response)
@@ -76,14 +76,14 @@ def handler(event, context):
         # Attempt to delete CloudWatch Alarm
         if match_instance_type:
           print('Deleting alarm for instance: ', instance_id)
-          response = cw.delete_alarms(
+          response = cloudwatch.delete_alarms(
             AlarmNames=[
               "{0}-CpuCreditBalance".format(instance_id)
               ]
             )
           # Verify successful
           if response['ResponseMetadata']['HTTPStatusCode'] == 200:
-            print('Successfully deleted CpuCreditBalance Alarm for instance: ', match.group(1))
+            print('Successfully deleted CpuCreditBalance Alarm for instance: ', instance_id)
           # Else print response as error
           else:
             print(response)
