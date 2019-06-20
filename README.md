@@ -1,13 +1,13 @@
-# terraform-aws-lambda-event-handler-ebs-burstbalance
-This module will deploy a lambda function which will listen for ebs volume creation/deletion events and put/delete BurstBalance alarms for gp2 volumes.
+# terraform-aws-lambda-event-handler-cpu-creditbalance
+This module will deploy a lambda function which will listen for ec2 instance running/stopped/terminated events and put/delete CreditBalance alarms for cpu credits.
 
 ### Example Usage:
 ```
-module "cpu-burst-balance-lambda" {
+module "cpu-credit-balance-lambda" {
   source = "StratusGrid/lambda-event-handler-cpu-creditbalance/aws"
-  version = "1.0.2"
+  version = "1.0.4"
   name_prefix = "${var.name_prefix}"
-  unique_name = "event-handler-cpu-burst-balance"
+  unique_name = "event-handler-cpu-credit-balance"
   sns_alarm_target = "${var.sns_alarm_target}"
 }
 ```
