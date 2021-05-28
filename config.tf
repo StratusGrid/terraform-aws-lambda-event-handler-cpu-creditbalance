@@ -73,7 +73,7 @@ resource "aws_lambda_function" "function" {
 #Role to attach policy to Function
 resource "aws_iam_role" "function_role" {
   name = "${var.name_prefix}-${var.unique_name}-role${var.name_suffix}"
-  tags = var.input_tags
+  tags = local.common_tags
 
   assume_role_policy = <<EOF
 {
