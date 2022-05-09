@@ -54,7 +54,7 @@ resource "aws_lambda_function" "function" {
   function_name = "${var.name_prefix}-${var.unique_name}-function${var.name_suffix}"
   role = aws_iam_role.function_role.arn
   handler = "main.handler"
-  runtime = "python3.6"
+  runtime = "python3.9"
   timeout = "10"
   environment {
     variables = {
