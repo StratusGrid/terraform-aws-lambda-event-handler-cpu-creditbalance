@@ -31,6 +31,7 @@ module "cpu_credit_balance_lambda" {
 | [aws_iam_role.function_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy.function_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
 | [aws_iam_role_policy.function_policy_default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
+| [aws_kms_key.log_key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key) | resource |
 | [aws_lambda_function.function](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
 | [aws_lambda_permission.allow_cloudwatch_event_trigger](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission) | resource |
 
@@ -43,6 +44,8 @@ module "cpu_credit_balance_lambda" {
 | <a name="input_alarm_threshold_unlimited"></a> [alarm\_threshold\_unlimited](#input\_alarm\_threshold\_unlimited) | Float value for alarm threshold to be used as upper limit for CPU Surplus Credit Balance on Unlimited Burst instances (e.g. 1.0) | `string` | `"1.0"` | no |
 | <a name="input_cloudwatch_log_retention_days"></a> [cloudwatch\_log\_retention\_days](#input\_cloudwatch\_log\_retention\_days) | Number of days for retention period of Lambda logs | `string` | `"30"` | no |
 | <a name="input_input_tags"></a> [input\_tags](#input\_input\_tags) | Map of tags to apply to resources | `map(string)` | <pre>{<br>  "Developer": "StratusGrid",<br>  "Provisioner": "Terraform"<br>}</pre> | no |
+| <a name="input_kms_log_key_deletion_window"></a> [kms\_log\_key\_deletion\_window](#input\_kms\_log\_key\_deletion\_window) | Duration (in day) of kms key created, default is 30 | `number` | n/a | yes |
+| <a name="input_lambda_tracing_option"></a> [lambda\_tracing\_option](#input\_lambda\_tracing\_option) | Lambda Tracing option whether to sample and trace a subset of incoming requests with AWS X-Ray. | `string` | `"Active"` | no |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | String to prefix on object names | `string` | `""` | no |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | String to append to object names. This is optional, so start with dash if using | `string` | `""` | no |
 | <a name="input_sns_alarm_target"></a> [sns\_alarm\_target](#input\_sns\_alarm\_target) | ARN for sns alarm to be targeted for performance alerts | `string` | `""` | no |

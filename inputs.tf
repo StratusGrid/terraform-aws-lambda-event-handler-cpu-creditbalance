@@ -54,3 +54,13 @@ variable "cloudwatch_log_retention_days" {
   default     = "30"
 }
 
+variable "lambda_tracing_option" {
+  description = "Lambda Tracing option whether to sample and trace a subset of incoming requests with AWS X-Ray."
+  type        = string
+  default     = "Active"
+}
+
+variable "kms_log_key_deletion_window" {
+  description = "Duration (in day) of kms key created, default is 30"
+  type        = number
+}
