@@ -167,7 +167,6 @@ EOF
 }
 
 #Cloudwatch Log Group for Function
-#tfsec:ignore:aws-cloudwatch-log-group-customer-key -- Ignore warning on Log group not being encrypted.
 resource "aws_cloudwatch_log_group" "log_group" {
   name = "/aws/lambda/${aws_lambda_function.function.function_name}"
 
