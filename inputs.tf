@@ -64,3 +64,9 @@ variable "kms_log_key_deletion_window" {
   description = "Duration (in day) of kms key created, default is 30"
   type        = number
 }
+
+variable "region" {
+  description = "Specifies the region where the logs are stored"
+  type        = string
+  default     = "us-east-1"
+}
