@@ -105,34 +105,33 @@ resource "aws_iam_role_policy" "function_policy_default" {
   name = "${var.name_prefix}-${var.unique_name}-policy-default${var.name_suffix}"
   role = aws_iam_role.function_role.id
 
-  policy = jsonencode(<<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowListCloudWatchLogGroups",
-      "Effect": "Allow",
-      "Action": "logs:DescribeLogStreams",
-      "Resource": "${aws_cloudwatch_log_group.log_group.arn}:*"
-    },
-    {
-      "Sid": "AllowCreatePutLogGroupsStreams",
-      "Effect": "Allow",
-      "Action": [
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "logs:DescribeLogStreams",
+        ]
+        Effect   = "Allow"
+        Resource = "${aws_cloudwatch_log_group.log_group.arn}:*"
+      },
+    ]
+
+    Statement = [
+      {
+        Action = [
           "logs:PutLogEvents",
           "logs:CreateLogStream",
           "logs:CreateLogGroup"
-      ],
-      "Resource": [
-          "${aws_cloudwatch_log_group.log_group.arn},
+        ]
+        Effect = "Allow"
+        Resource = [
+          aws_cloudwatch_log_group.log_group.arn,
           "${aws_cloudwatch_log_group.log_group.arn}:log-stream:*"
-      ]
-    }
-  ]
-}
-EOF
-  )
-
+        ]
+      },
+    ]
+  })
 }
 
 #Policy for additional Permissions for Lambda Execution
