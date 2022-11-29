@@ -106,7 +106,7 @@ resource "aws_iam_role_policy" "function_policy_default" {
   role = aws_iam_role.function_role.id
 
   policy = jsonencode({
-    Version = "2012-10-17"
+    Version = "2012-10-17" #tfsec:ignore:aws-iam-no-policy-wildcards Ignoring because log streams names are randomly generated and can't match them
     Statement = [
       {
         Action = [
@@ -164,9 +164,13 @@ resource "aws_iam_role_policy" "function_policy" {
 
 }
 
+locals {
+  log_group_name = "/aws/lambda/${aws_lambda_function.function.function_name}"
+}
+
 #Cloudwatch Log Group for Function
 resource "aws_cloudwatch_log_group" "log_group" {
-  name = "/aws/lambda/${aws_lambda_function.function.function_name}"
+  name = local.log_group_name
 
   retention_in_days = var.cloudwatch_log_retention_days
   kms_key_id        = aws_kms_key.log_key.arn
@@ -209,7 +213,7 @@ data "aws_iam_policy_document" "cloudwatch_kms" {
     condition {
       test = "ArnEquals"
       values = [
-        "arn:aws:logs:*:${data.aws_caller_identity.current.account_id}:log-group:*",
+        "arn:aws:logs:*:${data.aws_caller_identity.current.account_id}:log-group:${local.log_group_name}",
       ]
       variable = "kms:EncryptionContext:aws:logs:arn"
     }
