@@ -48,6 +48,7 @@ module "cpu_credit_balance_lambda" {
 | <a name="input_lambda_tracing_option"></a> [lambda\_tracing\_option](#input\_lambda\_tracing\_option) | Lambda Tracing option whether to sample and trace a subset of incoming requests with AWS X-Ray. | `string` | `"Active"` | no |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | String to prefix on object names | `string` | `""` | no |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | String to append to object names. This is optional, so start with dash if using | `string` | `""` | no |
+| <a name="input_region"></a> [region](#input\_region) | Specifies the region where the logs are stored | `string` | `"us-east-1"` | no |
 | <a name="input_sns_alarm_target"></a> [sns\_alarm\_target](#input\_sns\_alarm\_target) | ARN for sns alarm to be targeted for performance alerts | `string` | `""` | no |
 | <a name="input_unique_name"></a> [unique\_name](#input\_unique\_name) | Unique string to describe resources. E.g. 'ebs-append' would make <prefix><name>(type)<suffix> | `string` | n/a | yes |
 
