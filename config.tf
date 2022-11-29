@@ -105,7 +105,7 @@ resource "aws_iam_role_policy" "function_policy_default" {
   name = "${var.name_prefix}-${var.unique_name}-policy-default${var.name_suffix}"
   role = aws_iam_role.function_role.id
 
-  policy = <<EOF
+  policy = jsonencode(<<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -131,6 +131,7 @@ resource "aws_iam_role_policy" "function_policy_default" {
   ]
 }
 EOF
+  )
 
 }
 
@@ -140,29 +141,27 @@ resource "aws_iam_role_policy" "function_policy" {
   name = "${var.name_prefix}-${var.unique_name}-policy${var.name_suffix}"
   role = aws_iam_role.function_role.id
 
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowCloudwatchActions",
-      "Effect": "Allow",
-      "Action": [
-          "cloudwatch:*"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "AllowEc2Actions",
-      "Effect": "Allow",
-      "Action": [
-          "ec2:DescribeInstance*"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-EOF
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "cloudwatch:*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+    Statement = [
+      {
+        Action = [
+          "ec2:DescribeInstance*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
 
 }
 
@@ -172,8 +171,7 @@ resource "aws_cloudwatch_log_group" "log_group" {
 
   retention_in_days = var.cloudwatch_log_retention_days
   kms_key_id        = aws_kms_key.log_key.arn
-
-  tags = local.common_tags
+  tags              = local.common_tags
 }
 
 # CloudWatch Logs encryption key
