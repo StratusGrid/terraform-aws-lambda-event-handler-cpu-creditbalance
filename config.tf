@@ -124,7 +124,7 @@ resource "aws_iam_role_policy" "function_policy_default" {
           "logs:CreateLogGroup"
       ],
       "Resource": [
-          aws_cloudwatch_log_group.log_group.arn,
+          "${aws_cloudwatch_log_group.log_group.arn},
           "${aws_cloudwatch_log_group.log_group.arn}:log-stream:*"
       ]
     }
