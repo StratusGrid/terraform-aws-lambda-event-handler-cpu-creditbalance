@@ -1,9 +1,20 @@
 <!-- BEGIN_TF_DOCS -->
+<p align="center">                                                                                                                                            
+                                                                                
+  <img src="https://github.com/StratusGrid/terraform-readme-template/blob/main/header/stratusgrid-logo-smaller.jpg?raw=true" />
+  <p align="center">
+    <a href="https://stratusgrid.com/book-a-consultation">Contact Us Test</a>
+    <a href="https://stratusgrid.com/cloud-cost-optimization-dashboard">Stratusphere FinOps</a>
+    <a href="https://stratusgrid.com">StratusGrid Home</a>
+    <a href="https://stratusgrid.com/blog">Blog</a>
+  </p>
+</p>
+
 # terraform-aws-lambda-event-handler-cpu-creditbalance
 
 GitHub: [StratusGrid/terraform-aws-lambda-event-handler-cpu-creditbalance](https://github.com/StratusGrid/terraform-aws-lambda-event-handler-cpu-creditbalance)
 
-This module will deploy a lambda function which will listen for ec2 instance running/stopped/terminated events and put/delete CreditBalance alarms for cpu credits.
+This module will deploy a lambda function which will listen for ec2 instance running/stopped/terminated events and put/delete CreditBalance alarms for cpu credits. 
 
 ## Example:
 ```hcl

@@ -1,3 +1,5 @@
+header-from: ./.config/header.md
+
 version: ""
 
 formatter: markdown table
@@ -5,6 +7,8 @@ formatter: markdown table
 name:  terraform-aws-lambda-event-handler-cpu-creditbalance
 
 content: |-
+  {{ .Header }}
+
   # terraform-aws-lambda-event-handler-cpu-creditbalance
 
   GitHub: [StratusGrid/terraform-aws-lambda-event-handler-cpu-creditbalance](https://github.com/StratusGrid/terraform-aws-lambda-event-handler-cpu-creditbalance)
@@ -29,6 +33,7 @@ content: |-
 
 sections:
   show:
+    - header
     - resources
     - inputs
     - outputs
